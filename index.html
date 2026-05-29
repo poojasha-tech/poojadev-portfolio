@@ -660,8 +660,8 @@
           <a class="project-view" href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
           <a class="project-view" href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
-        <p class="project-desc" data-lang="en">A self-hosted webhook inspector — generate a URL, send any HTTP request to it, watch it appear in a live dashboard. HMAC-signed slugs with timing-safe verification, multi-container Docker deployment, Nginx + Let's Encrypt in front.</p>
-        <p class="project-desc" data-lang="de">Ein selbst gehosteter Webhook-Inspektor — URL generieren, beliebige HTTP-Anfragen schicken, sie live im Dashboard erscheinen sehen. HMAC-signierte Slugs mit Timing-sicherer Verifizierung, Multi-Container-Docker-Deployment, davor Nginx + Let's Encrypt.</p>
+        <p class="project-desc" data-lang="en">Built because I kept needing a private endpoint to inspect webhooks from third-party services during development. <code>webhook.site</code> works, but its URLs are shared and unsigned — I wanted a self-hosted version with HMAC-signed slugs and full ownership of the data.</p>
+        <p class="project-desc" data-lang="de">Entstanden, weil ich beim Entwickeln immer wieder einen privaten Endpunkt brauchte, um Webhooks von Drittanbietern zu inspizieren. <code>webhook.site</code> funktioniert, aber die URLs sind geteilt und unsigniert — ich wollte eine selbst gehostete Version mit HMAC-signierten Slugs und voller Datenkontrolle.</p>
 
 <pre class="project-arch">Browser ──HTTPS──▶ <span class="acc">Nginx</span> ──┬── /api/*  ──▶ Express + Prisma ──▶ SQLite
                            └── /*      ──▶ Static dashboard</pre>
@@ -690,8 +690,8 @@
           <a class="project-view" href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
           <a class="project-view" href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
-        <p class="project-desc" data-lang="en">An AI tutor for learning German — the project that's helping me prep for my own B2 exam. Conversation-style practice with feedback, spaced repetition for vocabulary, and grammar drills generated on demand.</p>
-        <p class="project-desc" data-lang="de">Ein KI-Tutor zum Deutschlernen — das Projekt, mit dem ich mich auf meine eigene B2-Prüfung vorbereite. Konversations-Übungen mit Feedback, Spaced Repetition für Vokabeln und Grammatikübungen auf Abruf.</p>
+        <p class="project-desc" data-lang="en">Built as a practice tool for my own German learning — apps don't push me enough, a tutor isn't always affordable. Flipdeutsch generates conversation prompts at my level, catches grammar mistakes in real time, and drills the vocabulary I keep forgetting.</p>
+        <p class="project-desc" data-lang="de">Als Übungstool für mein eigenes Deutschlernen entstanden — Apps fordern mich nicht genug, eine Nachhilfe ist nicht immer drin. Flipdeutsch generiert Gesprächsthemen auf meinem Niveau, korrigiert Grammatikfehler in Echtzeit und übt die Vokabeln, die ich immer wieder vergesse.</p>
         <div class="project-stack">
           <span class="tag">Node.js</span>
           <span class="tag">PostgreSQL</span>
@@ -712,14 +712,13 @@
           <a class="project-view" href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
           <a class="project-view" href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
-        <p class="project-desc" data-lang="en">A real-time chat application — rooms, presence, message history. Java / Spring Boot backend over WebSocket, PostgreSQL for persistence, JUnit for tests.</p>
-        <p class="project-desc" data-lang="de">Eine Echtzeit-Chat-Anwendung — Räume, Anwesenheit, Nachrichtenverlauf. Java/Spring-Boot-Backend über WebSocket, PostgreSQL zur Persistenz, JUnit für Tests.</p>
+        <p class="project-desc" data-lang="en">Built as a hands-on study in real-time fundamentals — WebSocket handshakes, presence tracking, message broadcasting. My CS50 capstone, intentionally simplified (in-memory state, no auth) to keep the focus on the mechanics rather than chase production features.</p>
+        <p class="project-desc" data-lang="de">Als praktische Studie zu Echtzeit-Grundlagen entstanden — WebSocket-Handshakes, Anwesenheitsverfolgung, Nachrichten-Broadcasting. Mein CS50-Abschlussprojekt, bewusst vereinfacht (In-Memory-State, keine Authentifizierung), um den Fokus auf den Mechanismen zu halten.</p>
         <div class="project-stack">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
           <span class="tag">WebSocket</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">JUnit</span>
+          <span class="tag">Docker</span>
         </div>
         <div class="project-links">
           <a href="https://github.com/poojasha-tech/Chat-App" target="_blank" rel="noopener" data-lang="en">source</a>
