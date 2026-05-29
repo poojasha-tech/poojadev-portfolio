@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pooja Sharma — CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #ffffff; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    color: #1f2937;
+    line-height: 1.35;
+    font-size: 8.8pt;
+    -webkit-font-smoothing: antialiased;
+  }
+  .cv {
+    display: grid;
+    grid-template-columns: 62mm 1fr;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    background: #0f1419;
+    color: #d1d5db;
+    padding: 9mm 7mm;
+  }
+  .photo {
+    width: 32mm;
+    height: 32mm;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 0.7rem;
+    border: 1.5px solid #5eead4;
+  }
+  .sidebar .name {
+    color: #ffffff;
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.15rem;
+    text-align: center;
+  }
+  .sidebar .role {
+    color: #5eead4;
+    font-size: 9pt;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+  .sidebar h2 {
+    color: #5eead4;
+    font-size: 7.6pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+    padding-bottom: 0.18rem;
+    border-bottom: 1px solid #334155;
+  }
+  .sidebar section { margin-bottom: 0.05rem; }
+  .sidebar ul { list-style: none; }
+  .sidebar li {
+    font-size: 7.8pt;
+    margin: 0.14rem 0;
+    color: #cbd5e1;
+    word-break: break-word;
+    line-height: 1.35;
+  }
+  .sidebar .key {
+    color: #94a3b8;
+    display: inline-block;
+    width: 50px;
+    font-size: 6.8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: top;
+  }
+  .sidebar .tech-group { margin-bottom: 0.32rem; }
+  .sidebar .tech-group h3 {
+    font-size: 7.8pt;
+    color: #f8fafc;
+    font-weight: 600;
+    margin-bottom: 0.05rem;
+  }
+  .sidebar .tech-group p {
+    font-size: 7.5pt;
+    color: #cbd5e1;
+    line-height: 1.32;
+  }
+  .sidebar .edu-item { margin-bottom: 0.42rem; }
+  .sidebar .edu-item h3 {
+    font-size: 8pt;
+    color: #f8fafc;
+    font-weight: 600;
+    margin-bottom: 0.03rem;
+  }
+  .sidebar .edu-item .org {
+    font-size: 7.5pt;
+    color: #cbd5e1;
+  }
+  .sidebar .edu-item .dates {
+    font-size: 7pt;
+    color: #94a3b8;
+    font-family: ui-monospace, "SF Mono", monospace;
+  }
+  .sidebar .edu-item .note {
+    font-size: 7pt;
+    color: #5eead4;
+  }
+  .sidebar .lang-line { font-size: 7.8pt; color: #cbd5e1; margin: 0.08rem 0; }
+  .sidebar .lang-line .strong { color: #f8fafc; font-weight: 500; }
+  .sidebar a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.35);
+  }
+  .main a {
+    color: #0d9488;
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(13, 148, 136, 0.4);
+  }
+
+  /* ---------- Main ---------- */
+  .main {
+    padding: 9mm 8mm 9mm 9mm;
+    color: #1f2937;
+  }
+  .main h2 {
+    color: #0f172a;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    border-bottom: 1.5px solid #5eead4;
+    padding-bottom: 0.18rem;
+    margin-top: 0.85rem;
+    margin-bottom: 0.42rem;
+  }
+  .main h2:first-of-type { margin-top: 0; }
+  .profile p {
+    font-size: 8.8pt;
+    color: #1f2937;
+    line-height: 1.4;
+  }
+  .profile p strong { color: #0f172a; font-weight: 600; }
+
+  .job { margin-bottom: 0.55rem; page-break-inside: avoid; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .job-head h3 {
+    font-size: 9.3pt;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .job-head .dates {
+    font-size: 7.8pt;
+    color: #64748b;
+    font-family: ui-monospace, "SF Mono", monospace;
+    white-space: nowrap;
+  }
+  .job .org {
+    font-size: 8pt;
+    color: #475569;
+    font-style: italic;
+    margin-bottom: 0.18rem;
+  }
+  .job ul {
+    padding-left: 0.7rem;
+    list-style: none;
+  }
+  .job li {
+    font-size: 8.4pt;
+    margin: 0.12rem 0;
+    color: #1f2937;
+    position: relative;
+    padding-left: 0.6rem;
+    line-height: 1.35;
+  }
+  .job li:before {
+    content: "▸";
+    color: #5eead4;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .job p.gap-note {
+    font-size: 8.4pt;
+    color: #475569;
+    padding-left: 0.6rem;
+    position: relative;
+    line-height: 1.35;
+  }
+  .job p.gap-note:before {
+    content: "▸";
+    color: #5eead4;
+    position: absolute;
+    left: 0;
+  }
+
+  .projects ul { list-style: none; padding-left: 0; }
+  .projects li {
+    font-size: 8.4pt;
+    margin: 0.2rem 0;
+    color: #1f2937;
+    position: relative;
+    padding-left: 0.85rem;
+    line-height: 1.35;
+  }
+  .projects li:before {
+    content: "▸";
+    color: #5eead4;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .projects li strong { color: #0f172a; font-weight: 600; }
+  .projects li .meta { color: #64748b; font-size: 7.8pt; }
+  .projects li .url {
+    color: #0d9488;
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 7.8pt;
+  }
+
+  .certs ul { list-style: none; padding-left: 0; }
+  .certs li {
+    font-size: 8.4pt;
+    margin: 0.12rem 0;
+    color: #1f2937;
+    position: relative;
+    padding-left: 0.85rem;
+  }
+  .certs li:before {
+    content: "▸";
+    color: #5eead4;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="sidebar">
+
+    <img class="photo" src="me.jpg" alt="Pooja Sharma">
+
+    <div class="name">Pooja Sharma</div>
+    <div class="role">Backend Engineer</div>
+
+    <section>
+      <h2>Contact</h2>
+      <ul>
+        <li><span class="key">Email</span><a href="mailto:jaipooja199@gmail.com">jaipooja199@gmail.com</a></li>
+        <li><span class="key">Phone</span><a href="tel:+4915776882750">+49 1577 6882750</a></li>
+        <li><span class="key">Web</span><a href="https://poojadev.de">poojadev.de</a></li>
+        <li><span class="key">GitHub</span><a href="https://github.com/poojasha-tech">poojasha-tech</a></li>
+        <li><span class="key">LinkedIn</span><a href="https://www.linkedin.com/in/poojasharmasharma/">poojasharmasharma</a></li>
+        <li><span class="key">LeetCode</span><a href="https://leetcode.com/u/jaipooja/">jaipooja</a></li>
+        <li><span class="key">Where</span>Berlin, Germany</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Work Authorisation</h2>
+      <ul>
+        <li>EU Blue Card eligible</li>
+        <li>Anabin H+ recognised degree</li>
+        <li>Available from August 2026</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <div class="lang-line"><span class="strong">English</span> — full professional</div>
+      <div class="lang-line"><span class="strong">German</span> — B2</div>
+      <div class="lang-line"><span class="strong">Hindi</span> — native</div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="tech-group">
+        <h3>Languages</h3>
+        <p>Java, TypeScript, SQL</p>
+      </div>
+      <div class="tech-group">
+        <h3>Backend</h3>
+        <p>Node.js, Express, Spring Boot, Hibernate, JUnit, REST, WebSocket</p>
+      </div>
+      <div class="tech-group">
+        <h3>Data</h3>
+        <p>PostgreSQL, MongoDB, Redis, Prisma</p>
+      </div>
+      <div class="tech-group">
+        <h3>Cloud / Infra</h3>
+        <p>AWS (EC2, S3, RDS, Bedrock), Docker, Nginx, Let's Encrypt, Linux</p>
+      </div>
+      <div class="tech-group">
+        <h3>Frontend</h3>
+        <p>React, Vite, Chakra UI</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>M.Sc. Mathematics &amp; CS</h3>
+        <div class="org">Leibniz Universität Hannover</div>
+        <div class="dates">2024 — ongoing</div>
+      </div>
+      <div class="edu-item">
+        <h3>B.Sc. Mathematics</h3>
+        <div class="org">Banasthali Vidyapith, India</div>
+        <div class="dates">2016 — 2019</div>
+        <div class="note">Anabin H+ recognised (DE)</div>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- ============ Main ============ -->
+  <main class="main">
+
+    <section class="profile">
+      <h2>Profile</h2>
+      <p>Backend engineer with <strong>2+ years</strong> across Java and Node.js. Currently shipping <strong>Spring Boot</strong> APIs on AWS for a state-government infrastructure platform; previously optimised <strong>Node.js / PostgreSQL</strong> endpoints for an Indian news app serving millions of daily readers. Hands-on with AWS, Docker, and database tuning. Based in Berlin, EU Blue Card ready, available from <strong>August 2026</strong>.</p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Backend Developer</h3>
+          <span class="dates">Jan 2025 — present</span>
+        </div>
+        <div class="org">Neovant Advance Solutions · India (remote) · J&amp;K Government PMU platform</div>
+        <ul>
+          <li>Designed and implemented <strong>Role-Based Access Control (RBAC)</strong> with Spring Security — tiered data access for thousands of administrative users.</li>
+          <li>Built <strong>Spring Boot REST APIs</strong> on AWS (EC2, S3, RDS) with <strong>Hibernate</strong> ORM for cloud-hosted government services with strict audit and uptime requirements.</li>
+          <li>Integrated <strong>AWS Bedrock</strong> for automated document analysis and real-time fraud detection in submitted reports.</li>
+          <li>Shipped React components surfacing live project state from the API to non-technical stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Freelance Backend + Relocation</h3>
+          <span class="dates">2024</span>
+        </div>
+        <p class="gap-note">Backend contracts in Node.js + PostgreSQL for Indian small businesses, alongside the move from Delhi to Berlin.</p>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Backend Developer</h3>
+          <span class="dates">Nov 2022 — Dec 2023</span>
+        </div>
+        <div class="org">Avishkar.tech · Delhi · client: Amar Ujala (Hindi news, millions of daily readers)</div>
+        <ul>
+          <li>Optimised hot-path <strong>PostgreSQL queries</strong> and <strong>Node.js / Express</strong> endpoints under high-concurrency newsroom traffic.</li>
+          <li>Built <strong>JavaScript</strong> webhook automation pipelines with <strong>ElevenLabs</strong> and <strong>GoHighLevel</strong> for AI-assisted publishing workflows.</li>
+          <li>End-to-end in Agile sprints — design, implementation, code review, ship — with measurable latency and throughput improvements.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="projects">
+      <h2>Selected Projects</h2>
+      <ul>
+        <li><strong>request-inspector-service</strong> <span class="meta">— Live · <a href="https://inspector.poojadev.de">inspector.poojadev.de</a> · <a href="https://github.com/poojasha-tech/request-inspector-service">source</a></span><br>Self-hosted webhook inspector with HMAC-signed slugs. Node.js + Express + Prisma + SQLite, Docker Compose, Nginx + Let's Encrypt on AWS EC2.</li>
+        <li><strong>flipdeutsch</strong> <span class="meta">— In progress</span><br>AI tutor for German learning. Node.js, PostgreSQL, Redis, LLM APIs, React.</li>
+        <li><strong>chat-app</strong> <span class="meta">— In progress</span><br>Real-time chat with rooms, presence, message history. Java/Spring Boot, WebSocket, PostgreSQL, JUnit.</li>
+      </ul>
+    </section>
+
+    <section class="certs">
+      <h2>Certifications</h2>
+      <ul>
+        <li><a href="https://www.coursera.org/account/accomplishments/verify/I6BBQWK67MD4">Divide and Conquer, Sorting and Searching, Randomized Algorithms</a> — Stanford (Coursera)</li>
+        <li><a href="https://www.coursera.org/account/accomplishments/verify/23JI4RROTUQZ">Number Theory and Cryptography</a> — UC San Diego (Coursera)</li>
+        <li><a href="https://www.udemy.com/certificate/UC-5edc58c3-d034-46d8-8476-21fbb6575fc5/">Web Development</a> — Udemy</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

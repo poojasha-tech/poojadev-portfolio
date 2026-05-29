@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pooja Sharma — backend engineer in Berlin. Node.js · Java · PostgreSQL · AWS. Two years shipping APIs to millions of users. EU Blue Card ready, German B2. Open to roles.">
+<meta name="author" content="Pooja Sharma">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pooja Sharma — Backend Engineer, Berlin">
+<meta property="og:description" content="Backend engineer in Berlin. Node.js, Java, PostgreSQL, AWS. Two years shipping APIs to millions of users. EU Blue Card ready, German B2. Open to roles.">
+<meta property="og:url" content="https://poojadev.de">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<title>Pooja Sharma — Backend Engineer, Berlin</title>
+
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --bg-elev: #131318;
+    --bg-card: #16161c;
+    --border: #27272f;
+    --border-strong: #3a3a44;
+    --text: #e4e4e7;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+    --accent: #5eead4;
+    --accent-dim: rgba(94, 234, 212, 0.15);
+    --accent-soft: rgba(94, 234, 212, 0.08);
+    --amber: #fbbf24;
+    --red: #f87171;
+    --maxw: 760px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  code, .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", "JetBrains Mono", monospace;
+    font-size: 0.92em;
+  }
+
+  /* ----- Language toggle ----- */
+  html[lang="en"] [data-lang="de"],
+  html[lang="de"] [data-lang="en"] { display: none; }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 0.5rem;
+  }
+  .lang-toggle button {
+    padding: 0.3rem 0.55rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 0.12s ease;
+  }
+  .lang-toggle button.active {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+  .lang-toggle button:hover:not(.active) {
+    color: var(--text);
+    background: var(--bg-elev);
+  }
+
+  /* ----- Layout ----- */
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ----- Nav ----- */
+  nav.top {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  nav.top .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  nav.top .brand {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.95rem;
+    color: var(--text);
+    border: none;
+  }
+  nav.top .right {
+    display: flex;
+    align-items: center;
+  }
+  nav.top .links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+  nav.top .links a { color: var(--text-muted); border: none; }
+  nav.top .links a:hover { color: var(--accent); }
+
+  /* ----- Hero ----- */
+  header.hero { padding: 4.5rem 0 3rem; }
+  header.hero .wrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .hero-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 0 4px var(--bg-elev), 0 8px 28px rgba(0,0,0,0.4);
+    display: block;
+  }
+  @media (max-width: 640px) {
+    header.hero .wrap {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .hero-photo {
+      width: 96px;
+      height: 96px;
+      order: -1;
+    }
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(94, 234, 212, 0.2);
+  }
+  .status-pill .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(94, 234, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(94, 234, 212, 0); }
+  }
+  header.hero h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  header.hero .role {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem;
+  }
+  header.hero .role .sep { color: var(--border-strong); margin: 0 0.6rem; }
+  header.hero .lede {
+    font-size: 1.15rem;
+    color: var(--text);
+    margin: 1rem 0 2rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  header.hero .cta-row {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elev);
+    color: var(--text);
+    transition: all 0.15s ease;
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: #042f2e;
+    border-color: var(--accent);
+  }
+  .btn.primary:hover { background: #2dd4bf; color: #022c22; }
+
+  /* ----- Sections ----- */
+  section { padding: 3rem 0; border-top: 1px solid var(--border); }
+  section h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  section h2:before { content: "// "; color: var(--text-dim); }
+
+  /* ----- About ----- */
+  .about p { font-size: 1.05rem; color: var(--text); margin: 0 0 1rem; }
+  .about p.now {
+    color: var(--text-muted);
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    font-style: italic;
+  }
+
+  /* ----- Experience ----- */
+  .exp-item { margin-bottom: 2rem; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .exp-role { font-weight: 600; color: var(--text); font-size: 1.05rem; }
+  .exp-role .company { color: var(--accent); font-weight: 500; }
+  .exp-meta { color: var(--text-dim); font-size: 0.88rem; font-family: ui-monospace, monospace; }
+  .exp-context { color: var(--text-muted); font-size: 0.92rem; margin: 0.2rem 0 0.7rem; }
+  .exp-bullets { padding-left: 1.2rem; margin: 0; color: var(--text); }
+  .exp-bullets li { margin: 0.35rem 0; }
+  .exp-bullets li::marker { color: var(--accent); }
+
+  /* ----- Projects ----- */
+  .projects-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+  .project {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.15s ease;
+  }
+  .project:hover { border-color: var(--border-strong); }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .project-name .arrow { color: var(--accent); margin-right: 0.4rem; }
+  .project-status {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-family: ui-monospace, monospace;
+    font-weight: 600;
+  }
+  .project-status.live {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+  .project-status.wip {
+    background: rgba(251, 191, 36, 0.15);
+    color: var(--amber);
+  }
+  .project-desc { color: var(--text-muted); margin: 0.5rem 0 0.9rem; font-size: 0.96rem; }
+  .project-arch {
+    font-family: ui-monospace, "SF Mono", Menlo, Monaco, monospace;
+    font-size: 0.72rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.7rem 0.95rem;
+    margin: 0.4rem 0 0.4rem;
+    color: var(--text-muted);
+    overflow-x: auto;
+    line-height: 1.65;
+    white-space: pre;
+  }
+  .project-arch .acc { color: var(--accent); }
+  .project-arch-caption {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 0 0 0.8rem;
+    line-height: 1.5;
+  }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+  .tag {
+    font-family: ui-monospace, monospace;
+    font-size: 0.78rem;
+    padding: 0.2rem 0.55rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+  .project-links {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.9rem;
+    font-family: ui-monospace, monospace;
+  }
+  .project-links a:before { content: "→ "; }
+
+  /* ----- Stack ----- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.6rem 1.5rem;
+    align-items: baseline;
+  }
+  .stack-label {
+    color: var(--accent);
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .stack-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .stack-items .tag { font-size: 0.85rem; }
+
+  /* ----- Certificates ----- */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  a.cert {
+    padding: 0.8rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    position: relative;
+  }
+  a.cert:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-elev);
+  }
+  a.cert:after {
+    content: "↗";
+    position: absolute;
+    top: 0.8rem;
+    right: 1.2rem;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    transition: color 0.15s ease;
+  }
+  a.cert:hover:after {
+    color: var(--accent);
+  }
+  .cert-title {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.96rem;
+    margin-bottom: 0.15rem;
+    line-height: 1.4;
+    padding-right: 1.2rem;
+  }
+  .cert-issuer {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: ui-monospace, monospace;
+  }
+
+  /* ----- Contact ----- */
+  .contact-grid { display: grid; gap: 0.7rem; }
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.95rem;
+  }
+  .contact-row .key { color: var(--text-dim); min-width: 110px; }
+  .contact-row a { font-family: ui-monospace, monospace; }
+  .lang-line { color: var(--text-muted); }
+
+  /* ----- Footer ----- */
+  footer {
+    padding: 3.5rem 0 4rem;
+    border-top: 1px solid var(--border);
+  }
+  footer .foot-greeting {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  footer .foot-greeting .de { color: var(--accent); }
+  footer .foot-greeting .arrow { color: var(--text-dim); margin: 0 0.5rem; }
+  footer .foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: baseline;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  footer .foot-links a {
+    color: var(--text-muted);
+    border-bottom: 1px dashed transparent;
+  }
+  footer .foot-links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  footer .foot-meta {
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  /* ----- Mobile ----- */
+  @media (max-width: 600px) {
+    header.hero { padding: 2.5rem 0 2rem; }
+    header.hero .cta-row { gap: 0.5rem; }
+    .btn { padding: 0.55rem 0.9rem; font-size: 0.88rem; }
+    .stack-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .stack-label { margin-top: 0.3rem; }
+    nav.top .links { gap: 1rem; }
+    nav.top .links a:not(:last-child) { display: none; }
+    nav.top .right { gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="brand">poojadev.de</a>
+    <div class="right">
+      <div class="links">
+        <a href="#projects" data-lang="en">projects</a>
+        <a href="#projects" data-lang="de">projekte</a>
+        <a href="#experience" data-lang="en">experience</a>
+        <a href="#experience" data-lang="de">erfahrung</a>
+        <a href="#contact" data-lang="en">contact</a>
+        <a href="#contact" data-lang="de">kontakt</a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" class="active" aria-pressed="true">EN</button>
+        <button data-set-lang="de" aria-pressed="false">DE</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+
+    <span class="status-pill" data-lang="en"><span class="dot"></span> Available from August 2026 · Open to backend roles in Germany</span>
+    <span class="status-pill" data-lang="de"><span class="dot"></span> Verfügbar ab August 2026 · Offen für Backend-Stellen in Deutschland</span>
+
+    <h1>Pooja Sharma</h1>
+
+    <p class="role" data-lang="en">Backend Engineer <span class="sep">·</span> Berlin <span class="sep">·</span> EU Blue Card ready</p>
+    <p class="role" data-lang="de">Backend-Entwicklerin <span class="sep">·</span> Berlin <span class="sep">·</span> EU Blue Card bereit</p>
+
+    <p class="lede" data-lang="en">
+      I build backend systems that survive real traffic. Two years shipping Node.js APIs for a news platform with millions of readers, and secure cloud APIs for a state government in India. Now in Berlin, working in <strong>Node.js and Java</strong>, learning German (B2), and building tools I actually use — including <a href="#projects">Flipdeutsch</a>, an AI tutor I'm using to learn the language.
+    </p>
+    <p class="lede" data-lang="de">
+      Ich entwickle Backend-Systeme, die echter Last standhalten. Zwei Jahre Node.js-APIs für eine Nachrichten-App mit Millionen Lesern und sichere Cloud-APIs für eine indische Landesregierung. Jetzt in Berlin: ich arbeite mit <strong>Node.js und Java</strong>, lerne Deutsch (B2) und baue Tools, die ich selbst nutze — darunter <a href="#projects">Flipdeutsch</a>, einen KI-Tutor, mit dem ich Deutsch lerne.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="#projects" data-lang="en">View projects</a>
+      <a class="btn primary" href="#projects" data-lang="de">Projekte ansehen</a>
+      <a class="btn" href="Pooja-Sharma-CV.pdf" target="_blank" rel="noopener" data-lang="en">View CV ↗</a>
+      <a class="btn" href="Pooja-Sharma-CV.pdf" target="_blank" rel="noopener" data-lang="de">Lebenslauf ansehen ↗</a>
+      <a class="btn" href="mailto:jaipooja199@gmail.com">jaipooja199@gmail.com</a>
+      <a class="btn" href="https://github.com/poojasha-tech" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/poojasharmasharma/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    </div>
+    <img class="hero-photo" src="me.jpg" alt="Portrait of Pooja Sharma">
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <h2 data-lang="en">About</h2>
+    <h2 data-lang="de">Über mich</h2>
+
+    <p data-lang="en">I started with a maths degree (Banasthali Vidyapith — Anabin H+ recognised in Germany) and traded proofs for production: two years of backend engineering across a high-traffic news app and a state-government platform in India. Moved to Berlin in 2024.</p>
+    <p data-lang="de">Ich habe mit einem Mathematik-Bachelor angefangen (Banasthali Vidyapith — in Deutschland von Anabin als H+ anerkannt) und bin von Beweisen zu Produktivsystemen gewechselt: zwei Jahre Backend-Entwicklung für eine stark frequentierte Nachrichten-App und eine staatliche Plattform in Indien. 2024 nach Berlin gezogen.</p>
+
+    <p data-lang="en">I care about systems that are <em>boring in the right places</em> — predictable APIs, clean data models, observable behaviour under load — and interesting where it matters: thoughtful caching, secure auth, reliable deployments.</p>
+    <p data-lang="de">Mir sind Systeme wichtig, die an den richtigen Stellen <em>langweilig</em> sind — vorhersagbare APIs, saubere Datenmodelle, beobachtbares Verhalten unter Last — und interessant da, wo es zählt: durchdachtes Caching, sichere Authentifizierung, zuverlässige Deployments.</p>
+
+    <p data-lang="en">When I'm sketching a system, I'm thinking about where the hot path is and what caches it; how the thing fails (idempotency on the API, retries that don't double-charge); where the data lives and the reading patterns that hit it; and what the operator on call at 3 AM needs to see.</p>
+    <p data-lang="de">Wenn ich ein System skizziere, denke ich darüber nach: wo der kritische Pfad liegt und welche Caches ihn entlasten; wie es ausfällt (Idempotenz auf der API, Retries, die nichts doppelt anfassen); wo die Daten liegen und welche Lesemuster sie treffen; und was die Bereitschaft um 3 Uhr morgens sehen muss.</p>
+
+    <p class="now" data-lang="en"><strong>Right now:</strong> in Berlin, EU Blue Card ready, available to start. Backends in <span class="mono">Node.js</span> and <span class="mono">Java</span> (Spring Boot, Hibernate, JUnit); <span class="mono">PostgreSQL</span> and <span class="mono">Redis</span> on the data side; <span class="mono">AWS</span> in production. German at <span class="mono">B2</span>.</p>
+    <p class="now" data-lang="de"><strong>Aktuell:</strong> in Berlin, EU Blue Card bereit, verfügbar zum Einstieg. Backends in <span class="mono">Node.js</span> und <span class="mono">Java</span> (Spring Boot, Hibernate, JUnit); <span class="mono">PostgreSQL</span> und <span class="mono">Redis</span> für die Daten; <span class="mono">AWS</span> in Produktion. Deutsch auf <span class="mono">B2</span>.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 data-lang="en">Experience</h2>
+    <h2 data-lang="de">Berufserfahrung</h2>
+
+    <!-- Neovant -->
+    <div class="exp-item" data-lang="en">
+      <div class="exp-head">
+        <div class="exp-role">Backend Developer <span class="company">@ Neovant Advance Solutions</span></div>
+        <div class="exp-meta">Jan 2025 — present</div>
+      </div>
+      <div class="exp-context">Secure backend APIs for the J&amp;K Government PMU platform — state-wide infrastructure tracking.</div>
+      <ul class="exp-bullets">
+        <li>Designed and implemented <strong>Role-Based Access Control (RBAC)</strong> with Spring Security — tiered data access for thousands of administrative users across departments.</li>
+        <li>Built <strong>Spring Boot REST APIs</strong> on AWS (EC2, S3, RDS) with <strong>Hibernate</strong> ORM for cloud-hosted government services with strict audit and uptime requirements.</li>
+        <li>Integrated <strong>AWS Bedrock</strong> for automated document analysis and real-time fraud detection in submitted reports.</li>
+        <li>Shipped React components that surfaced live project state from the API to non-technical stakeholders.</li>
+      </ul>
+    </div>
+    <div class="exp-item" data-lang="de">
+      <div class="exp-head">
+        <div class="exp-role">Backend-Entwicklerin <span class="company">@ Neovant Advance Solutions</span></div>
+        <div class="exp-meta">Jan. 2025 — heute</div>
+      </div>
+      <div class="exp-context">Sichere Backend-APIs für die PMU-Plattform der J&amp;K-Regierung — landesweite Verfolgung von Infrastrukturprojekten.</div>
+      <ul class="exp-bullets">
+        <li><strong>Rollenbasierte Zugriffskontrolle (RBAC)</strong> mit Spring Security entworfen und implementiert — gestaffelter Datenzugriff für tausende Verwaltungsnutzer in verschiedenen Abteilungen.</li>
+        <li><strong>Spring Boot REST-APIs</strong> auf AWS (EC2, S3, RDS) mit <strong>Hibernate</strong> entwickelt — cloud-gehostete staatliche Dienste mit strengen Audit- und Verfügbarkeitsanforderungen.</li>
+        <li><strong>AWS Bedrock</strong> integriert für automatisierte Dokumentenanalyse und Echtzeit-Betrugserkennung in eingereichten Berichten.</li>
+        <li>React-Komponenten ausgeliefert, die den aktuellen Projektstatus aus der API für nicht-technische Stakeholder sichtbar machten.</li>
+      </ul>
+    </div>
+
+    <!-- Freelance + Relocation -->
+    <div class="exp-item" data-lang="en">
+      <div class="exp-head">
+        <div class="exp-role"><span class="company">Freelance + Relocation</span></div>
+        <div class="exp-meta">2024</div>
+      </div>
+      <div class="exp-context">Backend contracts in Node.js + PostgreSQL for Indian small businesses, alongside the move from Delhi to Berlin.</div>
+    </div>
+    <div class="exp-item" data-lang="de">
+      <div class="exp-head">
+        <div class="exp-role"><span class="company">Freiberuflich + Umzug</span></div>
+        <div class="exp-meta">2024</div>
+      </div>
+      <div class="exp-context">Backend-Aufträge in Node.js + PostgreSQL für indische Kleinunternehmen während des Umzugs von Delhi nach Berlin.</div>
+    </div>
+
+    <!-- Avishkar -->
+    <div class="exp-item" data-lang="en">
+      <div class="exp-head">
+        <div class="exp-role">Backend Developer <span class="company">@ Avishkar.tech</span></div>
+        <div class="exp-meta">Nov 2022 — Dec 2023</div>
+      </div>
+      <div class="exp-context">Client: <strong>Amar Ujala</strong> — one of India's largest Hindi news apps, millions of daily readers.</div>
+      <ul class="exp-bullets">
+        <li>Optimised hot-path <strong>PostgreSQL queries</strong> and <strong>Node.js / Express</strong> endpoints under high-concurrency newsroom traffic.</li>
+        <li>Built <strong>JavaScript</strong> webhook-driven automation pipelines with <strong>ElevenLabs</strong> and <strong>GoHighLevel</strong> for AI-assisted publishing workflows.</li>
+        <li>Worked end-to-end through Agile sprints — design, implementation, code review, ship — with measurable latency and throughput improvements.</li>
+      </ul>
+    </div>
+    <div class="exp-item" data-lang="de">
+      <div class="exp-head">
+        <div class="exp-role">Backend-Entwicklerin <span class="company">@ Avishkar.tech</span></div>
+        <div class="exp-meta">Nov. 2022 — Dez. 2023</div>
+      </div>
+      <div class="exp-context">Kunde: <strong>Amar Ujala</strong> — eine der größten Hindi-Nachrichten-Apps Indiens, Millionen täglicher Leser.</div>
+      <ul class="exp-bullets">
+        <li>Performance-kritische <strong>PostgreSQL-Queries</strong> und <strong>Node.js / Express</strong>-Endpoints unter hoher Last im Newsroom-Betrieb optimiert.</li>
+        <li><strong>JavaScript</strong>-basierte Webhook-Automatisierungs-Pipelines mit <strong>ElevenLabs</strong> und <strong>GoHighLevel</strong> für KI-gestützte Publishing-Workflows aufgebaut.</li>
+        <li>End-to-End in agilen Sprints gearbeitet — Design, Implementierung, Code-Review, Release — mit messbaren Verbesserungen bei Latenz und Durchsatz.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 data-lang="en">Projects</h2>
+    <h2 data-lang="de">Projekte</h2>
+
+    <div class="projects-grid">
+
+      <!-- request-inspector -->
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name"><span class="arrow">▸</span>request-inspector-service</div>
+          <span class="project-status live">● Live</span>
+        </div>
+        <p class="project-desc" data-lang="en">A self-hosted webhook inspector — generate a URL, send any HTTP request to it, watch it appear in a live dashboard. HMAC-signed slugs with timing-safe verification, multi-container Docker deployment, Nginx + Let's Encrypt in front.</p>
+        <p class="project-desc" data-lang="de">Ein selbst gehosteter Webhook-Inspektor — URL generieren, beliebige HTTP-Anfragen schicken, sie live im Dashboard erscheinen sehen. HMAC-signierte Slugs mit Timing-sicherer Verifizierung, Multi-Container-Docker-Deployment, davor Nginx + Let's Encrypt.</p>
+
+<pre class="project-arch">Browser ──HTTPS──▶ <span class="acc">Nginx</span> ──┬── /api/*  ──▶ Express + Prisma ──▶ SQLite
+                           └── /*      ──▶ Static dashboard</pre>
+        <div class="project-arch-caption" data-lang="en">Nginx terminates TLS. Containers bind to <code>127.0.0.1</code> only — Nginx is the single public entry. Cert auto-renews via Certbot.</div>
+        <div class="project-arch-caption" data-lang="de">Nginx terminiert TLS. Container sind nur an <code>127.0.0.1</code> gebunden — Nginx ist der einzige öffentliche Eingang. Zertifikat erneuert sich automatisch via Certbot.</div>
+
+        <div class="project-stack">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">Prisma</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">AWS EC2</span>
+        </div>
+        <div class="project-links">
+          <a href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
+          <a href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
+          <a href="https://github.com/poojasha-tech/request-inspector-service" target="_blank" rel="noopener" data-lang="en">source</a>
+          <a href="https://github.com/poojasha-tech/request-inspector-service" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
+        </div>
+      </div>
+
+      <!-- flipdeutsch -->
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name"><span class="arrow">▸</span>flipdeutsch</div>
+          <span class="project-status wip" data-lang="en">● In progress</span>
+          <span class="project-status wip" data-lang="de">● In Arbeit</span>
+        </div>
+        <p class="project-desc" data-lang="en">An AI tutor for learning German — the project that's helping me prep for my own B2 exam. Conversation-style practice with feedback, spaced repetition for vocabulary, and grammar drills generated on demand.</p>
+        <p class="project-desc" data-lang="de">Ein KI-Tutor zum Deutschlernen — das Projekt, mit dem ich mich auf meine eigene B2-Prüfung vorbereite. Konversations-Übungen mit Feedback, Spaced Repetition für Vokabeln und Grammatikübungen auf Abruf.</p>
+        <div class="project-stack">
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Redis</span>
+          <span class="tag">LLM APIs</span>
+          <span class="tag">React</span>
+        </div>
+        <div class="project-links">
+          <a href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
+          <a href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
+          <a href="https://github.com/poojasha-tech/Flipdeutsch" target="_blank" rel="noopener" data-lang="en">source</a>
+          <a href="https://github.com/poojasha-tech/Flipdeutsch" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
+        </div>
+      </div>
+
+      <!-- chat-app -->
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name"><span class="arrow">▸</span>chat-app</div>
+          <span class="project-status wip" data-lang="en">● In progress</span>
+          <span class="project-status wip" data-lang="de">● In Arbeit</span>
+        </div>
+        <p class="project-desc" data-lang="en">A real-time chat application — rooms, presence, message history. Java / Spring Boot backend over WebSocket, PostgreSQL for persistence, JUnit for tests.</p>
+        <p class="project-desc" data-lang="de">Eine Echtzeit-Chat-Anwendung — Räume, Anwesenheit, Nachrichtenverlauf. Java/Spring-Boot-Backend über WebSocket, PostgreSQL zur Persistenz, JUnit für Tests.</p>
+        <div class="project-stack">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">WebSocket</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">JUnit</span>
+        </div>
+        <div class="project-links">
+          <a href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
+          <a href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
+          <a href="https://github.com/poojasha-tech/Chat-App" target="_blank" rel="noopener" data-lang="en">source</a>
+          <a href="https://github.com/poojasha-tech/Chat-App" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2 data-lang="en">Stack</h2>
+    <h2 data-lang="de">Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-label" data-lang="en">Languages</div>
+      <div class="stack-label" data-lang="de">Sprachen</div>
+      <div class="stack-items">
+        <span class="tag">Java</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">SQL</span>
+      </div>
+
+      <div class="stack-label">Backend</div>
+      <div class="stack-items">
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Hibernate</span>
+        <span class="tag">JUnit</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">WebSocket</span>
+      </div>
+
+      <div class="stack-label" data-lang="en">Data</div>
+      <div class="stack-label" data-lang="de">Daten</div>
+      <div class="stack-items">
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Prisma</span>
+      </div>
+
+      <div class="stack-label" data-lang="en">Cloud / Infra</div>
+      <div class="stack-label" data-lang="de">Cloud / Infrastruktur</div>
+      <div class="stack-items">
+        <span class="tag">AWS (EC2, S3, RDS, Bedrock)</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Nginx</span>
+        <span class="tag">Let's Encrypt</span>
+        <span class="tag">Linux</span>
+      </div>
+
+      <div class="stack-label">Frontend</div>
+      <div class="stack-items">
+        <span class="tag">React</span>
+        <span class="tag">Vite</span>
+        <span class="tag">Chakra UI</span>
+        <span class="tag">HTML / CSS</span>
+      </div>
+
+      <div class="stack-label" data-lang="en">Workflow</div>
+      <div class="stack-label" data-lang="de">Arbeitsweise</div>
+      <div class="stack-items">
+        <span class="tag" data-lang="en">Git</span>
+        <span class="tag" data-lang="de">Git</span>
+        <span class="tag" data-lang="en">Agile / Scrum</span>
+        <span class="tag" data-lang="de">Agile / Scrum</span>
+        <span class="tag" data-lang="en">Code review</span>
+        <span class="tag" data-lang="de">Code-Review</span>
+        <span class="tag">CI/CD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <h2 data-lang="en">Certificates</h2>
+    <h2 data-lang="de">Zertifikate</h2>
+
+    <div class="cert-list">
+      <a class="cert" href="https://www.coursera.org/account/accomplishments/verify/I6BBQWK67MD4" target="_blank" rel="noopener">
+        <div class="cert-title">Divide and Conquer, Sorting and Searching, and Randomized Algorithms</div>
+        <div class="cert-issuer">Stanford University · Coursera · verified</div>
+      </a>
+      <a class="cert" href="https://www.coursera.org/account/accomplishments/verify/23JI4RROTUQZ" target="_blank" rel="noopener">
+        <div class="cert-title">Number Theory and Cryptography</div>
+        <div class="cert-issuer">UC San Diego · Coursera · verified</div>
+      </a>
+      <a class="cert" href="https://www.udemy.com/certificate/UC-5edc58c3-d034-46d8-8476-21fbb6575fc5/" target="_blank" rel="noopener">
+        <div class="cert-title">Web Development</div>
+        <div class="cert-issuer">Udemy · verified</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 data-lang="en">Contact</h2>
+    <h2 data-lang="de">Kontakt</h2>
+    <div class="contact-grid">
+
+      <div class="contact-row">
+        <span class="key" data-lang="en">email</span>
+        <span class="key" data-lang="de">E-Mail</span>
+        <a href="mailto:jaipooja199@gmail.com">jaipooja199@gmail.com</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="key" data-lang="en">phone</span>
+        <span class="key" data-lang="de">Telefon</span>
+        <span>+49 1577 6882750</span>
+      </div>
+
+      <div class="contact-row">
+        <span class="key">github</span>
+        <a href="https://github.com/poojasha-tech" target="_blank" rel="noopener">github.com/poojasha-tech</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="key">linkedin</span>
+        <a href="https://www.linkedin.com/in/poojasharmasharma/" target="_blank" rel="noopener">linkedin.com/in/poojasharmasharma</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="key">leetcode</span>
+        <a href="https://leetcode.com/u/jaipooja/" target="_blank" rel="noopener">leetcode.com/u/jaipooja</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="key" data-lang="en">location</span>
+        <span class="key" data-lang="de">Standort</span>
+        <span data-lang="en">Berlin, Germany</span>
+        <span data-lang="de">Berlin, Deutschland</span>
+      </div>
+
+      <div class="contact-row">
+        <span class="key" data-lang="en">work auth</span>
+        <span class="key" data-lang="de">Arbeitsrecht</span>
+        <span data-lang="en">EU Blue Card eligible · Anabin H+ recognised</span>
+        <span data-lang="de">EU Blue Card berechtigt · Anabin H+ anerkannt</span>
+      </div>
+
+      <div class="contact-row">
+        <span class="key" data-lang="en">languages</span>
+        <span class="key" data-lang="de">Sprachen</span>
+        <span class="lang-line" data-lang="en">English (full professional) · German (B2) · Hindi (native)</span>
+        <span class="lang-line" data-lang="de">Englisch (verhandlungssicher) · Deutsch (B2) · Hindi (Muttersprache)</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+
+    <div class="foot-links">
+      <a href="mailto:jaipooja199@gmail.com">jaipooja199@gmail.com</a>
+      <span>·</span>
+      <a href="https://github.com/poojasha-tech" target="_blank" rel="noopener">github</a>
+      <span>·</span>
+      <a href="https://www.linkedin.com/in/poojasharmasharma/" target="_blank" rel="noopener">linkedin</a>
+      <span>·</span>
+      <a href="https://leetcode.com/u/jaipooja/" target="_blank" rel="noopener">leetcode</a>
+    </div>
+
+    <div class="foot-meta">© 2026 Pooja Sharma · Berlin · poojadev.de</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    const buttons = document.querySelectorAll('.lang-toggle button[data-set-lang]');
+
+    function setLang(lang) {
+      root.setAttribute('lang', lang);
+      try { localStorage.setItem('poojadev.lang', lang); } catch (_) {}
+      buttons.forEach(btn => {
+        const active = btn.dataset.setLang === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active);
+      });
+    }
+
+    let initial = 'en';
+    try {
+      const saved = localStorage.getItem('poojadev.lang');
+      if (saved === 'de' || saved === 'en') {
+        initial = saved;
+      } else if (navigator.language && navigator.language.toLowerCase().startsWith('de')) {
+        initial = 'de';
+      }
+    } catch (_) {}
+    setLang(initial);
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.setLang));
+    });
+  })();
+</script>
+
+</body>
+</html>
