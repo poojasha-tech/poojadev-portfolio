@@ -296,22 +296,27 @@
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
   }
   .project-name .arrow { color: var(--accent); margin-right: 0.4rem; }
-  .project-status {
+  .project-view {
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 0.28rem 0.75rem;
     border-radius: 4px;
     font-family: ui-monospace, monospace;
     font-weight: 600;
-  }
-  .project-status.live {
     background: var(--accent-dim);
     color: var(--accent);
+    border: 1px solid rgba(94, 234, 212, 0.3);
+    text-decoration: none;
+    border-bottom: none;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
   }
-  .project-status.wip {
-    background: rgba(251, 191, 36, 0.15);
-    color: var(--amber);
+  .project-view:hover {
+    background: var(--accent);
+    color: #042f2e;
+    border-color: var(--accent);
+    border-bottom: none;
   }
   .project-desc { color: var(--text-muted); margin: 0.5rem 0 0.9rem; font-size: 0.96rem; }
   .project-arch {
@@ -652,7 +657,8 @@
       <div class="project">
         <div class="project-head">
           <div class="project-name"><span class="arrow">▸</span>request-inspector-service</div>
-          <span class="project-status live">● Live</span>
+          <a class="project-view" href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
+          <a class="project-view" href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
         <p class="project-desc" data-lang="en">A self-hosted webhook inspector — generate a URL, send any HTTP request to it, watch it appear in a live dashboard. HMAC-signed slugs with timing-safe verification, multi-container Docker deployment, Nginx + Let's Encrypt in front.</p>
         <p class="project-desc" data-lang="de">Ein selbst gehosteter Webhook-Inspektor — URL generieren, beliebige HTTP-Anfragen schicken, sie live im Dashboard erscheinen sehen. HMAC-signierte Slugs mit Timing-sicherer Verifizierung, Multi-Container-Docker-Deployment, davor Nginx + Let's Encrypt.</p>
@@ -672,8 +678,6 @@
           <span class="tag">AWS EC2</span>
         </div>
         <div class="project-links">
-          <a href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
-          <a href="https://inspector.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
           <a href="https://github.com/poojasha-tech/request-inspector-service" target="_blank" rel="noopener" data-lang="en">source</a>
           <a href="https://github.com/poojasha-tech/request-inspector-service" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
         </div>
@@ -683,8 +687,8 @@
       <div class="project">
         <div class="project-head">
           <div class="project-name"><span class="arrow">▸</span>flipdeutsch</div>
-          <span class="project-status wip" data-lang="en">● In progress</span>
-          <span class="project-status wip" data-lang="de">● In Arbeit</span>
+          <a class="project-view" href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
+          <a class="project-view" href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
         <p class="project-desc" data-lang="en">An AI tutor for learning German — the project that's helping me prep for my own B2 exam. Conversation-style practice with feedback, spaced repetition for vocabulary, and grammar drills generated on demand.</p>
         <p class="project-desc" data-lang="de">Ein KI-Tutor zum Deutschlernen — das Projekt, mit dem ich mich auf meine eigene B2-Prüfung vorbereite. Konversations-Übungen mit Feedback, Spaced Repetition für Vokabeln und Grammatikübungen auf Abruf.</p>
@@ -696,8 +700,6 @@
           <span class="tag">React</span>
         </div>
         <div class="project-links">
-          <a href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
-          <a href="https://flipdeutsch.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
           <a href="https://github.com/poojasha-tech/Flipdeutsch" target="_blank" rel="noopener" data-lang="en">source</a>
           <a href="https://github.com/poojasha-tech/Flipdeutsch" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
         </div>
@@ -707,8 +709,8 @@
       <div class="project">
         <div class="project-head">
           <div class="project-name"><span class="arrow">▸</span>chat-app</div>
-          <span class="project-status wip" data-lang="en">● In progress</span>
-          <span class="project-status wip" data-lang="de">● In Arbeit</span>
+          <a class="project-view" href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="en">View ↗</a>
+          <a class="project-view" href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="de">Ansehen ↗</a>
         </div>
         <p class="project-desc" data-lang="en">A real-time chat application — rooms, presence, message history. Java / Spring Boot backend over WebSocket, PostgreSQL for persistence, JUnit for tests.</p>
         <p class="project-desc" data-lang="de">Eine Echtzeit-Chat-Anwendung — Räume, Anwesenheit, Nachrichtenverlauf. Java/Spring-Boot-Backend über WebSocket, PostgreSQL zur Persistenz, JUnit für Tests.</p>
@@ -720,8 +722,6 @@
           <span class="tag">JUnit</span>
         </div>
         <div class="project-links">
-          <a href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="en">live demo</a>
-          <a href="https://chat.poojadev.de" target="_blank" rel="noopener" data-lang="de">Live-Demo</a>
           <a href="https://github.com/poojasha-tech/Chat-App" target="_blank" rel="noopener" data-lang="en">source</a>
           <a href="https://github.com/poojasha-tech/Chat-App" target="_blank" rel="noopener" data-lang="de">Quellcode</a>
         </div>
